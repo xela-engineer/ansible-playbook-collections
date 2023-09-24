@@ -1,0 +1,15 @@
+---
+- name: Get a list of scheduled template job
+  hosts: 127.0.0.1
+  connection: local
+  gather_facts: false
+  tasks:
+    - name: RUN COMMAND
+      register: show_output
+      ansible.builtin.raw: |
+              "date"
+      args:
+        executable: /bin/bash
+    - name: RETURN RESULTS
+      debug:
+        msg: "{{ show_output }}"
