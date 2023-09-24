@@ -7,7 +7,7 @@
     - name: RUN COMMAND
       register: show_output
       ansible.builtin.raw: |
-             curl -k https://controller1.aap-stag.expertsystems.com/api/v2/job_templates/7/schedules/
+             curl -sk https://controller1.aap-stag.expertsystems.com/api/v2/job_templates/7/schedules/ --header 'Authorization: Bearer {{AAP_API_token}}'
   #"curl -sk --location 'https://controller1.aap-stag.expertsystems.com/api/v2/job_templates/7/schedules/' --header 'Authorization: Bearer {{AAP_API_token}}'"
       args:
         executable: /bin/bash
